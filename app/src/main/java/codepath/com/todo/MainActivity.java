@@ -23,6 +23,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lvItems = findViewById(R.id.lvItems);
+        findViewById(R.id.btnAddItem).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onclick(View view) {
+                EditText etNewItem = findViewById(R.id.etNewItem);
+                itemsAdapter.add(etNewItem.getText().toString());
+                etNewItem.setText("");
+            }
+        });
         itemsAdapter = new ArrayAdapter<> (this, android.R.layout.simple_list_item_1, items);
         lvItems.setAdapter(itemsAdapter);
         setupListViewListener();
