@@ -27,9 +27,16 @@ public class EditItemActivity extends AppCompatActivity {
         etNewItem.setText(oldText);
         Editable etext = etNewItem.getText();
         Selection.setSelection(etext, oldText.length());
+
+        findViewById(R.id.btnSave).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeToDoItem();
+            }
+        });
     }
 
-    public void changeToDoItem(View v) {
+    public void changeToDoItem() {
         EditText etNewItem = findViewById(R.id.editText1);
         Intent data = new Intent();
         data.putExtra("newItem", etNewItem.getText().toString());
