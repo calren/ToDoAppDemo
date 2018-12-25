@@ -37,7 +37,6 @@ public class EditItemActivity extends AppCompatActivity {
         EditText etNewItem = findViewById(R.id.editText1);
         Intent data = new Intent();
         data.putExtra("newItem", etNewItem.getText().toString());
-        setResult(RESULT_OK, data);
         finish();
     }
 }
