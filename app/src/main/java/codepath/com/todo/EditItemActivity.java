@@ -28,7 +28,7 @@ public class EditItemActivity extends AppCompatActivity {
         Editable etext = etNewItem.getText();
         Selection.setSelection(etext, oldText.length());
 
-        findViewById(R.id.btnSave).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.etNewItem).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 changeToDoItem();
