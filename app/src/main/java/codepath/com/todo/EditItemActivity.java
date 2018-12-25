@@ -15,7 +15,7 @@ public class EditItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_item);
 
-        String oldText = getIntent().getStringExtra("oldItem");
+        String oldText = getIntent().getStringExtra("olditem");
 
         // set text to old text
         EditText etNewItem = findViewById(R.id.editText1);
