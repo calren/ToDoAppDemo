@@ -15,7 +15,6 @@
     <EditText
         android:id="@+id/etNewItem"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:ems="10"
@@ -30,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:onClick="addToDoItem"
         android:text="Add" />
 
 </RelativeLayout>
