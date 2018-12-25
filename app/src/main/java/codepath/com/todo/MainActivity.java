@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> itemsAdapter;
     ListView lvItems;
     private final int REQUEST_CODE = 20;
+    int positionOfEditingItem = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +30,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupListViewListener() {
-        lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long rowId) {
-                items.remove(position);
-                itemsAdapter.notifyDataSetChanged();
-                return true;
-            }
-        });
 
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -44,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     int position, long id) {
                 Intent i = new Intent(MainActivity.this, EditItemActivity.class);
                 i.putExtra("oldItem", items.get(position));
-                i.putExtra("position", position);
+                positionOfEditingItem = position;
                 startActivityForResult(i, REQUEST_CODE);
             }
         });
@@ -54,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
             String newItem = data.getExtras().getString("newItem");
-            int position = data.getExtras().getInt("position");
-            items.set(position, newItem);
+            items.set(positionOfEditingItem, newItem);
             itemsAdapter.notifyDataSetChanged();
         }
     }
