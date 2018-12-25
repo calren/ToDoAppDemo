@@ -22,7 +22,6 @@
         android:layout_alignLeft="@+id/editText1"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="71dp"
-        android:onClick="changeToDoItem"
         android:text="Save" />
 
     <EditText
