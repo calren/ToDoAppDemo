@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
                     int position, long id) {
                 Intent i = new Intent(MainActivity.this, EditItemActivity.class);
                 i.putExtra("oldItem", items.get(position));
-                positionOfEditingItem = position;
                 startActivityForResult(i, REQUEST_CODE);
             }
         });
